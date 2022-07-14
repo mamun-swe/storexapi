@@ -43,7 +43,7 @@ if (cluster.isMaster) {
     app.get("/", (req: Request, res: Response, next: NextFunction) => {
         res.status(200).json({
             message: "Welcome to storexapi platform.",
-            documentation: ""
+            documentation: "https://documenter.getpostman.com/view/5909130/UzQuPR5Y"
         })
     })
 
