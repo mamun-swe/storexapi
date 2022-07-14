@@ -1,0 +1,25 @@
+{
+  "name": "storexapi",
+  "version": "1.0.0",
+  "description": "Storexapi is a store management opensource API platform for web and mobile apps frontend developers.",
+  "main": "index.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Mamun-swe/storexapi.git"
+  },
+  "keywords": [
+    "RESTAPI",
+    "Nodejs",
+    "MongoDB",
+    "Expressjs"
+  ],
+  "author": "Abdullah Al Mamun",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Mamun-swe/storexapi/issues"
+  },
+  "homepage": "https://github.com/Mamun-swe/storexapi#readme"
+}
