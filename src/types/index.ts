@@ -10,6 +10,12 @@ export type PaginateType = {
     total_items: number
 }
 
+export type JwtPayloadType = {
+    id: any,
+    name: string,
+    role: string
+}
+
 export type LoginType = {
     email: string,
     password: string
@@ -21,5 +27,8 @@ export type StoreType = {
     address: string,
     city: string,
     country: string,
+    email_verified: boolean,
+    role: "owner",
     password: string
 }
+

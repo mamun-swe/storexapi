@@ -22,14 +22,9 @@ var __importStar = (this && this.__importStar) || function (mod) {
     __setModuleDefault(result, mod);
     return result;
 };
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.authRouter = void 0;
-const express_1 = __importDefault(require("express"));
-const AuthController = __importStar(require("../controllers/auth.controller"));
-exports.authRouter = express_1.default.Router();
-exports.authRouter.post("/login", AuthController.Login);
-exports.authRouter.post("/register", AuthController.Register);
-exports.authRouter.post("/reset", AuthController.Reset);
+exports.Services = void 0;
+const EmailService = __importStar(require("./email.service"));
+exports.Services = {
+    EmailService
+};

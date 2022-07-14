@@ -6,3 +6,4 @@ export const authRouter = express.Router()
 
 authRouter.post("/login", AuthController.Login)
 authRouter.post("/register", AuthController.Register)
+authRouter.post("/reset", AuthController.Reset)

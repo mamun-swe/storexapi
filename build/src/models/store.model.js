@@ -29,6 +29,14 @@ const storeSchema = new mongoose_1.Schema({
         trim: true,
         required: true
     },
+    email_verified: {
+        type: Boolean,
+        default: false
+    },
+    role: {
+        type: String,
+        default: "owner"
+    },
     password: {
         type: String,
         trim: true,
