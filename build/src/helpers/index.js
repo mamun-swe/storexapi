@@ -9,7 +9,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.createJwtToken = exports.isEmpty = exports.isValidEmail = void 0;
+exports.verifyJwtToken = exports.createJwtToken = exports.isEmpty = exports.isValidEmail = void 0;
 const jsonwebtoken_1 = require("jsonwebtoken");
 /* E-mail validator */
 const isValidEmail = (email) => {
@@ -33,3 +33,10 @@ const createJwtToken = (payload) => __awaiter(void 0, void 0, void 0, function* 
     return token;
 });
 exports.createJwtToken = createJwtToken;
+/* Verify jwt token */
+const verifyJwtToken = (token) => __awaiter(void 0, void 0, void 0, function* () {
+    const JWT_SECRET = process.env.JWT_SECRET;
+    const decodeToken = yield (0, jsonwebtoken_1.verify)(token, JWT_SECRET);
+    return decodeToken;
+});
+exports.verifyJwtToken = verifyJwtToken;

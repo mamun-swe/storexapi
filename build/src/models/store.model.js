@@ -41,6 +41,16 @@ const storeSchema = new mongoose_1.Schema({
         type: String,
         trim: true,
         required: true
+    },
+    profile_image: {
+        type: String,
+        trim: true,
+        default: null
+    },
+    cover_image: {
+        type: String,
+        trim: true,
+        default: null
     }
 }, {
     timestamps: true

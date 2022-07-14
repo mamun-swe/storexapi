@@ -1,5 +1,5 @@
-import { sign as jwtSign } from "jsonwebtoken"
-import { JwtPayloadType } from "../types"
+import { sign as jwtSign, verify as jwtVerify } from "jsonwebtoken"
+import { JwtPayloadType } from "src/types"
 
 /* E-mail validator */
 export const isValidEmail = (email: string) => {
@@ -15,7 +15,7 @@ export const isEmpty = (data: string) => {
 /* Create jwt token */
 export const createJwtToken = async (payload: JwtPayloadType) => {
     const JWT_SECRET: any = process.env.JWT_SECRET
-    
+
     const token = await jwtSign(
         {
             id: payload.id,
@@ -25,4 +25,12 @@ export const createJwtToken = async (payload: JwtPayloadType) => {
     )
 
     return token
+}
+
+/* Verify jwt token */
+export const verifyJwtToken = async (token: string): Promise<JwtPayloadType> => {
+    const JWT_SECRET: any = process.env.JWT_SECRET
+    const decodeToken: any = await jwtVerify(token, JWT_SECRET)
+
+    return decodeToken
 }

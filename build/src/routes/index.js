@@ -3,5 +3,8 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.router = void 0;
 const express_1 = require("express");
 const auth_route_1 = require("./auth.route");
+const store_route_1 = require("./store.route");
+const permission_middleware_1 = require("../middlewares/permission.middleware");
 exports.router = (0, express_1.Router)();
 exports.router.use("/auth", auth_route_1.authRouter);
+exports.router.use("/store", permission_middleware_1.storeOwner, store_route_1.storeRouter);
