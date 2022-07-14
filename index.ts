@@ -42,7 +42,7 @@ if (cluster.isMaster) {
     /* Base route */
     app.get("/", (req: Request, res: Response, next: NextFunction) => {
         res.status(200).json({
-            message: "Welcome to storexapi platform using heroku",
+            message: "Welcome to storexapi platform using heroku CI",
             documentation: ""
         })
     })
