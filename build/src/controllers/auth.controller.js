@@ -31,7 +31,7 @@ const Register = (req, res, next) => __awaiter(void 0, void 0, void 0, function*
     try {
         res.status(200).json({
             status: true,
-            message: "Register an login."
+            message: "Register an account."
         });
     }
     catch (error) {
