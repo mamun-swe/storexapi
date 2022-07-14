@@ -42,7 +42,7 @@ else {
     /* Base route */
     app.get("/", (req, res, next) => {
         res.status(200).json({
-            message: "Welcome to storexapi platform",
+            message: "Welcome to storexapi platform using heroku",
             documentation: ""
         });
     });
