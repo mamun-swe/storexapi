@@ -22,15 +22,15 @@ var __importStar = (this && this.__importStar) || function (mod) {
     __setModuleDefault(result, mod);
     return result;
 };
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.validator = void 0;
-const store = __importStar(require("./store.validator"));
-const category = __importStar(require("./category.validator"));
-const product = __importStar(require("./product.validator"));
-const cart = __importStar(require("./cart.validator"));
-exports.validator = {
-    store,
-    category,
-    product,
-    cart
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
 };
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.cartRouter = void 0;
+const express_1 = __importDefault(require("express"));
+const CartController = __importStar(require("../controllers/cart.controller"));
+exports.cartRouter = express_1.default.Router();
+exports.cartRouter.get("/", CartController.Index);
+exports.cartRouter.post("/", CartController.Store);
+exports.cartRouter.put("/:id", CartController.Update);
+exports.cartRouter.delete("/:id", CartController.Destroy);
