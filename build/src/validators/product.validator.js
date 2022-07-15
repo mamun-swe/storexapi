@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.create = void 0;
+exports.search = exports.create = void 0;
 const helpers_1 = require("../helpers");
 /* create validator */
 const create = (data) => {
@@ -23,3 +23,14 @@ const create = (data) => {
     };
 };
 exports.create = create;
+/* search validator */
+const search = (data) => {
+    let errors = {};
+    if (!data.query || (0, helpers_1.isEmpty)(data.query))
+        errors.query = "Query is required.";
+    return {
+        errors,
+        isValid: Object.keys(errors).length === 0
+    };
+};
+exports.search = search;

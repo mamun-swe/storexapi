@@ -27,3 +27,7 @@ export type ProductCreateErrorType = {
     description: string,
     image: string
 }
+
+export type ProductSearchType = {
+    query: string
+}

@@ -12,7 +12,10 @@ export const Index = async (req: Request, res: Response, next: NextFunction) => 
         const { limit, page } = paginateQueryParams(req.query)
 
         const totalItems = await Product.countDocuments({ created_by: store_id })
-        const results = await Product.find({ created_by: store_id })
+        const results = await Product.find(
+            { created_by: store_id },
+            { description: 0 }
+        )
             .sort({ _id: -1 })
             .skip((page * limit) - limit)
             .limit(limit)
@@ -236,6 +239,47 @@ export const Destroy = async (req: Request, res: Response, next: NextFunction) =
         res.status(200).json({
             status: true,
             message: "Product deleted."
+        })
+    } catch (error: any) {
+        if (error) {
+            console.log(error)
+            next(error)
+        }
+    }
+}
+
+/* Search from resources */
+export const Search = async (req: Request, res: Response, next: NextFunction) => {
+    try {
+        const { store_id } = req.store
+        const { query } = req.body
+
+        /* Check validation */
+        const validate = await validator.product.search(req.body)
+        if (!validate.isValid) {
+            return res.status(422).json({
+                status: false,
+                errors: validate.errors
+            })
+        }
+
+        /* search query */
+        const queryValue = new RegExp(query, 'i')
+        const results = await Product.find(
+            {
+                $and: [
+                    { created_by: store_id },
+                    { title: queryValue }
+                ]
+            },
+            { description: 0 }
+        )
+            .populate("category", "title")
+            .exec()
+
+        res.status(200).json({
+            status: true,
+            data: results
         })
     } catch (error: any) {
         if (error) {

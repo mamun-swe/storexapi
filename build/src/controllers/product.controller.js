@@ -9,7 +9,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.Destroy = exports.Update = exports.Show = exports.Store = exports.Index = void 0;
+exports.Search = exports.Destroy = exports.Update = exports.Show = exports.Store = exports.Index = void 0;
 const validators_1 = require("../validators");
 const product_model_1 = require("../models/product.model");
 const mongooseId_middleware_1 = require("../middlewares/mongooseId.middleware");
@@ -20,7 +20,7 @@ const Index = (req, res, next) => __awaiter(void 0, void 0, void 0, function* ()
         const { store_id } = req.store;
         const { limit, page } = (0, pagination_helper_1.paginateQueryParams)(req.query);
         const totalItems = yield product_model_1.Product.countDocuments({ created_by: store_id });
-        const results = yield product_model_1.Product.find({ created_by: store_id })
+        const results = yield product_model_1.Product.find({ created_by: store_id }, { description: 0 })
             .sort({ _id: -1 })
             .skip((page * limit) - limit)
             .limit(limit)
@@ -219,3 +219,39 @@ const Destroy = (req, res, next) => __awaiter(void 0, void 0, void 0, function* 
     }
 });
 exports.Destroy = Destroy;
+/* Search from resources */
+const Search = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
+    try {
+        const { store_id } = req.store;
+        const { query } = req.body;
+        /* Check validation */
+        const validate = yield validators_1.validator.product.search(req.body);
+        if (!validate.isValid) {
+            return res.status(422).json({
+                status: false,
+                errors: validate.errors
+            });
+        }
+        /* search query */
+        const queryValue = new RegExp(query, 'i');
+        const results = yield product_model_1.Product.find({
+            $and: [
+                { created_by: store_id },
+                { title: queryValue }
+            ]
+        }, { description: 0 })
+            .populate("category", "title")
+            .exec();
+        res.status(200).json({
+            status: true,
+            data: results
+        });
+    }
+    catch (error) {
+        if (error) {
+            console.log(error);
+            next(error);
+        }
+    }
+});
+exports.Search = Search;

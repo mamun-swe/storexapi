@@ -35,3 +35,4 @@ exports.productRouter.post("/", ProductController.Store);
 exports.productRouter.get("/:id", ProductController.Show);
 exports.productRouter.put("/:id", ProductController.Update);
 exports.productRouter.delete("/:id", ProductController.Destroy);
+exports.productRouter.post("/search", ProductController.Search);
