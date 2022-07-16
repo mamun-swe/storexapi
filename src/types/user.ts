@@ -1,7 +1,7 @@
 
 import { Document, ObjectId } from "mongoose"
 
-export interface UserTypes extends Document {
+export interface IRUser extends Document {
     _id: ObjectId,
     name: string,
     email: string,
@@ -16,7 +16,7 @@ export interface UserTypes extends Document {
     updatedAt: string
 }
 
-export type UserUpdateTypes = {
+export interface IRUserUpdate {
     name: string,
     email: string,
     address: string,
@@ -24,14 +24,6 @@ export type UserUpdateTypes = {
     country: string
 }
 
-export interface UserShowTypes extends Document {
-    _id: string,
-    name: string,
-    email: string,
-    address: string,
-    city: string,
-    country: string,
-    role: "user",
-    profile_image: string | null,
-    created_by: any
+export interface IRUserSearch {
+    query: string
 }

@@ -3,7 +3,6 @@ import { NextFunction, Request, Response } from "express"
 import { hash as hashPassword } from "bcryptjs"
 import { validator } from "../validators"
 import { User } from "../models/user.model"
-import { UserShowTypes, UserTypes } from "../types/user"
 import { isValidMongooseId } from "../middlewares/mongooseId.middleware"
 import { paginate, paginateQueryParams } from "../helpers/pagination.helper"
 
@@ -24,7 +23,7 @@ export const Index = async (req: Request, res: Response, next: NextFunction): Pr
 
         res.status(200).json({
             status: true,
-            data: <UserShowTypes[] | []>results,
+            data: results,
             paginate: paginate({ page, limit, total_items: totalItems })
         })
     } catch (error: any) {
@@ -107,7 +106,7 @@ export const Show = async (req: Request, res: Response, next: NextFunction): Pro
 
         /* Validate mongoose ID */
         await isValidMongooseId(id)
-        const result = <UserTypes | null>await User.findOne({
+        const result = await User.findOne({
             $and: [
                 { _id: id },
                 { created_by: store_id }
@@ -133,7 +132,13 @@ export const Update = async (req: Request, res: Response, next: NextFunction): P
     try {
         const { store_id } = req.store
         const { id } = req.params
-        const { title } = req.body
+        const {
+            name,
+            email,
+            address,
+            city,
+            country
+        } = req.body
 
         await isValidMongooseId(id)
 
@@ -147,7 +152,13 @@ export const Update = async (req: Request, res: Response, next: NextFunction): P
         }
 
         /* Check available */
-        const isAvailable = await User.findById(id)
+        const isAvailable = await User.findOne({
+            $and: [
+                { _id: id },
+                { created_by: store_id }
+            ]
+        })
+
         if (!isAvailable) {
             return res.status(404).json({
                 status: false,
@@ -157,42 +168,85 @@ export const Update = async (req: Request, res: Response, next: NextFunction): P
             })
         }
 
-        /* Check owner */
-        if (isAvailable.created_by.toString() !== store_id.toString()) {
-            return res.status(408).json({
-                status: false,
-                errors: {
-                    message: "You have no rights to edit this category."
-                }
-            })
-        }
-
-        /* Check unique title */
-        const isExist = await User.findOne({
+        /* Check unique email to this store */
+        const isExistEmail = await User.findOne({
             $and: [
                 { _id: { $ne: id } },
-                { title }
+                { created_by: store_id },
+                { email }
             ]
         })
 
-        if (isExist) {
+        if (isExistEmail) {
             return res.status(409).json({
                 status: false,
                 errors: {
-                    message: "This title already exist."
+                    message: "This email already exist."
                 }
             })
         }
 
         /* Update category title */
-        await User.findByIdAndUpdate(
-            id,
-            { $set: { title } }
+        await User.findOneAndUpdate(
+            {
+                $and: [
+                    { created_by: store_id },
+                    { _id: id }
+                ]
+            },
+            {
+                $set: {
+                    name,
+                    email,
+                    address,
+                    city,
+                    country
+                }
+            }
         )
 
         res.status(201).json({
             status: true,
-            message: "Category updated."
+            message: "User updated."
+        })
+    } catch (error: any) {
+        if (error) {
+            console.log(error)
+            next(error)
+        }
+    }
+}
+
+/* Search from resources */
+export const Search = async (req: Request, res: Response, next: NextFunction): Promise<Response | void> => {
+    try {
+        const { store_id } = req.store
+        const { query } = req.body
+
+        /* Check validation */
+        const validate = await validator.user.search(req.body)
+        if (!validate.isValid) {
+            return res.status(422).json({
+                status: false,
+                errors: validate.errors
+            })
+        }
+
+        /* search query */
+        const queryValue = new RegExp(query, 'i')
+        const results = await User.find(
+            {
+                $and: [
+                    { created_by: store_id },
+                    { name: queryValue }
+                ]
+            },
+            { password: 0 }
+        )
+
+        res.status(200).json({
+            status: true,
+            data: results
         })
     } catch (error: any) {
         if (error) {
