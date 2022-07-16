@@ -1,6 +1,7 @@
 import express, { Express, NextFunction, Response, Request } from "express"
 import { cpus } from "os"
 import cors from "cors"
+import path from "path"
 import morgan from "morgan"
 import helmet from "helmet"
 import dotenv from "dotenv"
@@ -38,13 +39,11 @@ if (cluster.isMaster) {
     app.use(compression())
     app.use(bodyParser.json())
     app.use(bodyParser.urlencoded({ extended: true }))
+    app.use(express.static("src/views"))
 
     /* Base route */
     app.get("/", (req: Request, res: Response, next: NextFunction) => {
-        res.status(200).json({
-            message: "Welcome to storexapi platform.",
-            documentation: "https://documenter.getpostman.com/view/5909130/UzQuPR5Y"
-        })
+        res.sendFile(path.join(__dirname, "src/views/index.html"))
     })
 
     /* Integrate API routes */
@@ -79,7 +78,6 @@ if (cluster.isMaster) {
             errors: { message: "Something going wrong." }
         })
     })
-
 
     /* DB Connection */
     mongoose.connect(DB_URI, { autoIndex: false })
