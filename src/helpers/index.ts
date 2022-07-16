@@ -1,5 +1,6 @@
-import { sign as jwtSign, verify as jwtVerify } from "jsonwebtoken"
+
 import { JwtPayloadType } from "src/types"
+import { sign as jwtSign, verify as jwtVerify } from "jsonwebtoken"
 
 /* E-mail validator */
 export const isValidEmail = (email: string) => {

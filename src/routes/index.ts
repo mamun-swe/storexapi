@@ -5,6 +5,7 @@ import { categoryRouter } from "./category.route"
 import { productRouter } from "./product.route"
 import { cartRouter } from "./cart.route"
 import { userRouter } from "./user.route"
+import { orderRouter } from "./order.route"
 
 import { storeOwner } from "../middlewares/permission.middleware"
 
@@ -16,3 +17,4 @@ router.use("/category", storeOwner, categoryRouter)
 router.use("/product", storeOwner, productRouter)
 router.use("/cart", storeOwner, cartRouter)
 router.use("/user", storeOwner, userRouter)
+router.use("/order", storeOwner, orderRouter)
