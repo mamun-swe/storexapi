@@ -1,6 +1,6 @@
 
 import { Schema, model } from "mongoose"
-import { UserTypes } from "../types/user"
+import { IRUser } from "../types/user"
 
 const userSchema: Schema = new Schema({
     name: {
@@ -50,4 +50,4 @@ const userSchema: Schema = new Schema({
 }, {
     timestamps: true
 })
-export const User = model<UserTypes>("User", userSchema)
+export const User = model<IRUser>("User", userSchema)
