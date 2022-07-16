@@ -7,6 +7,7 @@ const store_route_1 = require("./store.route");
 const category_route_1 = require("./category.route");
 const product_route_1 = require("./product.route");
 const cart_route_1 = require("./cart.route");
+const user_route_1 = require("./user.route");
 const permission_middleware_1 = require("../middlewares/permission.middleware");
 exports.router = (0, express_1.Router)();
 exports.router.use("/auth", auth_route_1.authRouter);
@@ -14,3 +15,4 @@ exports.router.use("/store", permission_middleware_1.storeOwner, store_route_1.s
 exports.router.use("/category", permission_middleware_1.storeOwner, category_route_1.categoryRouter);
 exports.router.use("/product", permission_middleware_1.storeOwner, product_route_1.productRouter);
 exports.router.use("/cart", permission_middleware_1.storeOwner, cart_route_1.cartRouter);
+exports.router.use("/user", permission_middleware_1.storeOwner, user_route_1.userRouter);

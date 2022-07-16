@@ -28,9 +28,11 @@ const store = __importStar(require("./store.validator"));
 const category = __importStar(require("./category.validator"));
 const product = __importStar(require("./product.validator"));
 const cart = __importStar(require("./cart.validator"));
+const user = __importStar(require("./user.validator"));
 exports.validator = {
     store,
     category,
     product,
-    cart
+    cart,
+    user
 };
