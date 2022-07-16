@@ -44,7 +44,8 @@ export const Store = async (req: Request, res: Response, next: NextFunction): Pr
             address,
             city,
             country,
-            password
+            password,
+            profile_image
         } = req.body
 
         /* Check validation */
@@ -80,6 +81,7 @@ export const Store = async (req: Request, res: Response, next: NextFunction): Pr
             address,
             city,
             country,
+            profile_image,
             password: encryptedHashPassword,
             created_by: store_id
         })
@@ -137,7 +139,8 @@ export const Update = async (req: Request, res: Response, next: NextFunction): P
             email,
             address,
             city,
-            country
+            country,
+            profile_image
         } = req.body
 
         await isValidMongooseId(id)
@@ -200,7 +203,8 @@ export const Update = async (req: Request, res: Response, next: NextFunction): P
                     email,
                     address,
                     city,
-                    country
+                    country,
+                    profile_image
                 }
             }
         )
