@@ -4,6 +4,11 @@ body {
     font-family: 'Barlow', sans-serif;
 }
 
+.logo {
+    width: 60px;
+    height: 55px;
+}
+
 .github-btn {
     color: #fff;
     border: 0;
