@@ -8,15 +8,14 @@ import dotenv from "dotenv"
 import nocache from "nocache"
 import process from "process"
 import cluster from "cluster"
-import mongoose from "mongoose"
 import bodyParser from "body-parser"
 import compression from "compression"
-import { router } from "./src/routes"
-
 dotenv.config()
+import { router } from "./src/routes"
+import { databaseConnection } from "./src/config/db.config"
+
 const numCPUs = cpus().length
 const port: any = process.env.PORT || 5000
-const DB_URI: any = process.env.DB_URI
 
 if (cluster.isMaster) {
     console.log(`Primary ${process.pid} is running`)
@@ -79,15 +78,9 @@ if (cluster.isMaster) {
         })
     })
 
-    /* DB Connection */
-    mongoose.connect(DB_URI, { autoIndex: false })
-        .then(() => console.log("Database connected"))
-        .catch(error => {
-            if (error) console.log('Failed to connect DB')
-        })
-
-    /* Start app to specific PORT */
+    /* Start app to specific PORT & establish database connection */
     app.listen(port, () => {
+        databaseConnection()
         console.log(`[server]: Server is running at http://localhost:${port}`)
     })
 }
