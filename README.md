@@ -27,4 +27,6 @@ There are 7 main resources need in store prototypes:
 
 - Auth 
     -[POST] Login https://storexapi.herokuapp.com/api/v1/auth/login
+
     -[POST] Register https://storexapi.herokuapp.com/api/v1/auth/register
+
