@@ -45,6 +45,10 @@ if (cluster.isMaster) {
         res.sendFile(path.join(__dirname, "src/views/index.html"))
     })
 
+    app.get("/docs", (req: Request, res: Response, next: NextFunction) => {
+        res.sendFile(path.join(__dirname, "src/views/docs.html"))
+    })
+
     /* Integrate API routes */
     app.use("/api/v1", router)
 
