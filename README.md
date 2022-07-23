@@ -22,3 +22,9 @@ There are 7 main resources need in store prototypes:
 - Cart https://storexapi.herokuapp.com/api/v1/cart
 - User https://storexapi.herokuapp.com/api/v1/user
 - Order https://storexapi.herokuapp.com/api/v1/order
+
+## Available routes
+
+- Auth 
+    -[POST] Login https://storexapi.herokuapp.com/api/v1/auth/login
+    -[POST] Register https://storexapi.herokuapp.com/api/v1/auth/register
