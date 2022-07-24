@@ -87,7 +87,7 @@ body {
 
 /* Docs page styles */
 /* custom-desktop-sidebar */
-.custom-desktop-sidebar {
+/* .custom-desktop-sidebar {
     display: none;
 }
 
@@ -108,6 +108,10 @@ body {
     .docs-main-content-container {
         padding-left: 250px !important;
     }
+} */
+
+.h4, .h5, .h6 {
+    color: #1b1b35 !important;
 }
 
 /* End docs page styles */

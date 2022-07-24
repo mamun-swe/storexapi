@@ -1,7 +1,7 @@
 <%- include("../components/head.ejs") %>
     <%- include("../components/navbar.ejs") %>
 
-        <div class="custom-container">
+        <!-- <div class="custom-container">
             <div class="d-flex">
                 <div class="custom-desktop-sidebar bg-warning">
                     
@@ -10,7 +10,63 @@
                     <p>Main content</p>
                 </div>
             </div>
-        </div>
+        </div> -->
 
+        <div class="custom-container">
+            <div class="container py-5">
+                <div class="row">
+
+                    <!-- Resources -->
+                    <div class="col-12 mb-5">
+                        <h4 class="h4 mb-0">Resources</h4>
+                        <p class="text-danger">There are 7 main resources need in store prototypes:</p>
+                        <ol>
+                            <%for (var item in data.resources){%>
+                                <li class="d-sm-flex mb-1">
+                                    <p class="fw-bold me-1 mb-0">
+                                        <%=data.resources[item].title%>:
+                                    </p>
+                                    <a href="<%=data.resources[item].endpoint%>">
+                                        <p class="text-break mb-0">
+                                            <%=data.resources[item].endpoint%>
+                                        </p>
+                                    </a>
+                                </li>
+                                <%}%>
+                        </ol>
+                    </div>
+
+                    <div class="col-12 mb-5">
+                        <h4 class="h4 mb-4">API Routes</h4>
+
+                        <div>
+                            <%for (let i=0; i < data.api_routes.length; i++) {%>
+                                <h6 class="text-capitalize fw-bold mb-3">
+                                    <%=Object.keys(data.api_routes[i])[0]%>
+                                </h6>
+                                <div class="mb-5">
+                                    <% var element=data.api_routes[i][Object.keys(data.api_routes[i])[0]]%>
+                                        <%for (let j=0; j < element.length; j++) {%>
+                                            <div class="d-sm-flex mb-2 ms-3">
+                                                <p class="fw-bold mb-0">
+                                                    [<%=element[j].method%>]
+                                                </p>
+                                                <p class="mx-1 mb-0">
+                                                    (<%=element[j].title%>)
+                                                </p>
+                                                <a href="<%=element[j].endpoint%>">
+                                                    <p class="text-break mb-0">
+                                                        <%=element[j].endpoint%>
+                                                    </p>
+                                                </a>
+                                            </div>
+                                            <%}%>
+                                </div>
+                                <%}%>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
         <%- include("../components/end.ejs") %>

@@ -13,6 +13,7 @@ import compression from "compression"
 dotenv.config()
 import { router } from "./src/routes"
 import { databaseConnection } from "./src/config/db.config"
+import jsonData from "./data.json"
 
 const numCPUs = cpus().length
 const port: any = process.env.PORT || 5000
@@ -50,7 +51,7 @@ if (cluster.isMaster) {
     })
 
     app.get("/docs", (req: Request, res: Response, next: NextFunction) => {
-        res.render("pages/docs")
+        res.render("pages/docs", { data: jsonData })
     })
 
     /* Integrate API routes */
@@ -60,7 +61,7 @@ if (cluster.isMaster) {
     app.use((error: any, req: Request, res: Response, next: NextFunction) => {
 
         console.log(error);
-        
+
 
         if (error.status == 404) {
             return res.status(404).json({
