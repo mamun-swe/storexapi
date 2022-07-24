@@ -4,11 +4,60 @@ body {
     font-family: 'Barlow', sans-serif;
 }
 
-.logo {
-    width: 60px;
-    height: 55px;
+/* Navbar styels*/
+.custom-navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    z-index: 9999;
+    background: #fff !important;
 }
 
+.custom-navbar .logo-container .logo {
+    width: 35px;
+    height: 32px;
+}
+
+@media(min-width: 992px) {
+    .custom-navbar {
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
+
+    .custom-navbar .logo-container .logo {
+        width: 50px;
+        height: 45px;
+    }
+}
+
+.custom-navbar .page-links-container a {
+    color: #6e6e6e !important;
+    font-size: 0.9em !important;
+    transition: 0.3s all !important;
+    font-weight: 500;
+}
+
+.custom-navbar .page-links-container a:hover {
+    color: #000 !important;
+}
+
+/* End navbar styels*/
+
+
+.custom-container {
+    margin-top: 62px !important;
+}
+
+@media(min-width: 992px) {
+    .custom-container {
+        margin-top: 85px !important;
+    }
+}
+
+/* Home page styles */
 .github-btn {
     color: #fff;
     border: 0;
@@ -32,3 +81,33 @@ body {
 .postman-btn:hover {
     background: rgba(218, 87, 40, 0.849) !important;
 }
+
+/* End home page styles */
+
+
+/* Docs page styles */
+/* custom-desktop-sidebar */
+.custom-desktop-sidebar {
+    display: none;
+}
+
+@media(min-width: 992px) {
+    .custom-desktop-sidebar {
+        display: block;
+        position: fixed;
+        top: 0;
+        left: 0;
+        padding: 15px;
+        padding-top: 85px !important;
+        width: 250px !important;
+        height: 100vh !important;
+        overflow-y: auto;
+        overflow-x: hidden;
+    }
+
+    .docs-main-content-container {
+        padding-left: 250px !important;
+    }
+}
+
+/* End docs page styles */

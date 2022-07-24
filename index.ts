@@ -40,13 +40,17 @@ if (cluster.isMaster) {
     app.use(bodyParser.urlencoded({ extended: true }))
     app.use(express.static("src/views"))
 
+    /* set the view engine to ejs */
+    app.set("views", path.join(__dirname, "views"));
+    app.set("view engine", "ejs");
+
     /* Base route */
     app.get("/", (req: Request, res: Response, next: NextFunction) => {
-        res.sendFile(path.join(__dirname, "src/views/index.html"))
+        res.render("pages/index")
     })
 
     app.get("/docs", (req: Request, res: Response, next: NextFunction) => {
-        res.sendFile(path.join(__dirname, "src/views/docs.html"))
+        res.render("pages/docs")
     })
 
     /* Integrate API routes */
@@ -54,6 +58,9 @@ if (cluster.isMaster) {
 
     /* Error handelling */
     app.use((error: any, req: Request, res: Response, next: NextFunction) => {
+
+        console.log(error);
+        
 
         if (error.status == 404) {
             return res.status(404).json({
