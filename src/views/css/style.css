@@ -80,6 +80,10 @@ body {
     }
 }
 
+.custom-navbar .page-links-container {
+    padding-top: 3px;
+}
+
 .custom-navbar .page-links-container a {
     color: #6e6e6e !important;
     font-size: 0.9em !important;
