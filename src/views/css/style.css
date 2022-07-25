@@ -99,7 +99,7 @@ body {
 
 /* Home page styles */
 header {
-    padding-top: 100px;
+    padding-top: 40px;
     padding-bottom: 100px;
 }
 
@@ -108,6 +108,11 @@ header .header-content-container {
 }
 
 @media(min-width: 768px) {
+    header {
+        padding-top: 100px;
+        padding-bottom: 100px;
+    }
+
     header img {
         max-width: 500px !important;
     }
@@ -121,7 +126,7 @@ header .header-content-container {
 
 @media(min-width: 1280px) {
     header img {
-        min-width: 650px !important;
+        min-width: 600px !important;
     }
 }
 
