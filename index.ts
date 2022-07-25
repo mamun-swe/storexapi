@@ -59,10 +59,6 @@ if (cluster.isMaster) {
 
     /* Error handelling */
     app.use((error: any, req: Request, res: Response, next: NextFunction) => {
-
-        console.log(error);
-
-
         if (error.status == 404) {
             return res.status(404).json({
                 status: false,
