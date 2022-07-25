@@ -120,13 +120,13 @@ header .header-content-container {
 
 @media(min-width: 992px) {
     header img {
-        min-width: 550px !important;
+        max-width: 550px !important;
     }
 }
 
 @media(min-width: 1280px) {
     header img {
-        min-width: 600px !important;
+        max-width: 600px !important;
     }
 }
 
