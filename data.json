@@ -1,0 +1,218 @@
+{
+    "root_url": "https://storexapi.herokuapp.com/api/v1",
+    "resources": [
+        {
+            "title": "Auth",
+            "endpoint": "/auth"
+        },
+        {
+            "title": "Store",
+            "endpoint": "/store"
+        },
+        {
+            "title": "Category",
+            "endpoint": "/category"
+        },
+        {
+            "title": "Product",
+            "endpoint": "/auth/product"
+        },
+        {
+            "title": "Cart",
+            "endpoint": "/auth/cart"
+        },
+        {
+            "title": "User",
+            "endpoint": "/auth/user"
+        },
+        {
+            "title": "Order",
+            "endpoint": "/auth/order"
+        }
+    ],
+    "api_routes": [
+        {
+            "auth": [
+                {
+                    "method": "POST",
+                    "title": "Login",
+                    "endpoint": "/auth/login"
+                },
+                {
+                    "method": "POST",
+                    "title": "Register",
+                    "endpoint": "/auth/register"
+                },
+                {
+                    "method": "POST",
+                    "title": "Reset",
+                    "endpoint": "/auth/reset"
+                }
+            ]
+        },
+        {
+            "store": [
+                {
+                    "method": "GET",
+                    "title": "Store",
+                    "endpoint": "/store"
+                },
+                {
+                    "method": "PUT",
+                    "title": "Update",
+                    "endpoint": "/store"
+                },
+                {
+                    "method": "POST",
+                    "title": "Add profile image",
+                    "endpoint": "/store/add-profile-image"
+                },
+                {
+                    "method": "POST",
+                    "title": "Add cover image",
+                    "endpoint": "/store/add-cover-image"
+                }
+            ]
+        },
+        {
+            "category": [
+                {
+                    "method": "GET",
+                    "title": "All",
+                    "endpoint": "/category?page=1&limit=10"
+                },
+                {
+                    "method": "POST",
+                    "title": "Create",
+                    "endpoint": "/category"
+                },
+                {
+                    "method": "GET",
+                    "title": "Show",
+                    "endpoint": "/category/:id"
+                },
+                {
+                    "method": "PUT",
+                    "title": "Update",
+                    "endpoint": "/category/:id"
+                }
+            ]
+        },
+        {
+            "product": [
+                {
+                    "method": "GET",
+                    "title": "All",
+                    "endpoint": "/product?page=1&limit=10"
+                },
+                {
+                    "method": "POST",
+                    "title": "Create",
+                    "endpoint": "/product"
+                },
+                {
+                    "method": "GET",
+                    "title": "Show",
+                    "endpoint": "/product/:id"
+                },
+                {
+                    "method": "PUT",
+                    "title": "Update",
+                    "endpoint": "/product/:id"
+                },
+                {
+                    "method": "DELETE",
+                    "title": "Destroy",
+                    "endpoint": "/product/:id"
+                },
+                {
+                    "method": "POST",
+                    "title": "Search",
+                    "endpoint": "/product/search"
+                }
+            ]
+        },
+        {
+            "cart": [
+                {
+                    "method": "GET",
+                    "title": "All",
+                    "endpoint": "/cart"
+                },
+                {
+                    "method": "POST",
+                    "title": "Create",
+                    "endpoint": "/cart"
+                },
+                {
+                    "method": "PUT",
+                    "title": "Update",
+                    "endpoint": "/cart/:id"
+                },
+                {
+                    "method": "DELETE",
+                    "title": "Destroy",
+                    "endpoint": "/cart/:id"
+                }
+            ]
+        },
+        {
+            "user": [
+                {
+                    "method": "GET",
+                    "title": "All",
+                    "endpoint": "/user?page=1&limit=10"
+                },
+                {
+                    "method": "POST",
+                    "title": "Create",
+                    "endpoint": "/user"
+                },
+                {
+                    "method": "GET",
+                    "title": "Show",
+                    "endpoint": "/user/:id"
+                },
+                {
+                    "method": "PUT",
+                    "title": "Update",
+                    "endpoint": "/user/:id"
+                },
+                {
+                    "method": "POST",
+                    "title": "Search",
+                    "endpoint": "/user/search"
+                }
+            ]
+        },
+        {
+            "order": [
+                {
+                    "method": "GET",
+                    "title": "All",
+                    "endpoint": "/order?page=1&limit=10"
+                },
+                {
+                    "method": "POST",
+                    "title": "Create",
+                    "endpoint": "/order"
+                },
+                {
+                    "method": "GET",
+                    "title": "Show",
+                    "endpoint": "/order/:id"
+                },
+                {
+                    "method": "PUT",
+                    "title": "Update",
+                    "endpoint": "/order/:id"
+                },
+                {
+                    "method": "POST",
+                    "title": "Search",
+                    "endpoint": "/order/search"
+                }
+            ]
+        }
+    ]
+}

@@ -4,16 +4,19 @@ body {
     font-family: 'Barlow', sans-serif;
 }
 
-.logo {
-    width: 60px;
-    height: 55px;
+.h1, .h2, .h3, .h4, .h5, .h6 {
+    color: #1b1b35 !important;
 }
 
 .github-btn {
     color: #fff;
     border: 0;
-    padding: 12px 25px;
+    padding-top: 17px;
+    padding-bottom: 17px;
     transition: 0.3s all;
+    width: 220px !important;
+    font-size: 16px !important;
+    border-radius: 4px !important;
 }
 
 .github-btn:hover {
@@ -21,14 +24,142 @@ body {
     background: #44494e;
 }
 
-.postman-btn {
+.doc-btn {
     border: 0;
-    padding: 12px 25px;
-    transition: 0.3s all;
+    padding-top: 17px;
+    padding-bottom: 17px;
+    width: 220px !important;
     color: #fff !important;
-    background: #EF5B25 !important;
+    font-size: 16px !important;
+    border-radius: 4px !important;
+    transition: 0.3s all !important;
+    background: #1b1b35 !important;
 }
 
-.postman-btn:hover {
-    background: rgba(218, 87, 40, 0.849) !important;
+.doc-btn:hover {
+    background: #1b1b35da !important;
 }
+
+.custom-container {
+    margin-top: 62px !important;
+}
+
+@media(min-width: 992px) {
+    .custom-container {
+        margin-top: 85px !important;
+    }
+}
+
+
+/* Navbar styels*/
+.custom-navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    z-index: 9999;
+    background: #fff !important;
+}
+
+.custom-navbar .logo-container .logo {
+    width: 35px;
+    height: 32px;
+}
+
+@media(min-width: 992px) {
+    .custom-navbar {
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
+
+    .custom-navbar .logo-container .logo {
+        width: 50px;
+        height: 45px;
+    }
+}
+
+.custom-navbar .page-links-container {
+    padding-top: 3px;
+}
+
+.custom-navbar .page-links-container a {
+    color: #6e6e6e !important;
+    font-size: 0.9em !important;
+    transition: 0.3s all !important;
+    font-weight: 500;
+}
+
+.custom-navbar .page-links-container a:hover {
+    color: #000 !important;
+}
+
+/* End navbar styels*/
+
+/* Home page styles */
+header {
+    padding-top: 100px;
+    padding-bottom: 100px;
+}
+
+header .header-content-container {
+    padding-top: 100px;
+}
+
+@media(min-width: 768px) {
+    header img {
+        max-width: 500px !important;
+    }
+}
+
+@media(min-width: 992px) {
+    header img {
+        min-width: 550px !important;
+    }
+}
+
+@media(min-width: 1280px) {
+    header img {
+        min-width: 650px !important;
+    }
+}
+
+@media(min-width: 992px) {
+    header .header-content-container {
+        padding-top: 150px;
+    }
+}
+
+.section-one {
+    text-align: center;
+    padding-bottom: 100px !important;
+}
+
+
+.resource-section {
+    padding-bottom: 100px !important;
+}
+
+.api-routes-section {
+    padding-bottom: 100px !important;
+}
+
+/* End home page styles */
+
+
+/* Docs page styles */
+@media(min-width: 768px) {
+    .api-routes-list-box {
+        width: 600px !important;
+    }
+}
+
+/* End docs page styles */
+
+/* Start footer style */
+.footer {
+    background: #f5f5f5;
+}
+
+/* End footer style */

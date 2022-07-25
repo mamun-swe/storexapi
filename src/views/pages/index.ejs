@@ -1,0 +1,150 @@
+<%- include("../components/head.ejs") %>
+    <%- include("../components/navbar.ejs") %>
+
+        <div class="custom-container">
+            <header>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12 col-lg-6 mb-4 mb-lg-0 text-center text-lg-start header-content-container">
+                            <h1 class="text-black mb-3" style="font-weight: 900;font-size: 2.5em;">STOREX API</h1>
+                            <p class="fw-light mb-3" style="font-size: 17px; color: #3a3134;">Storex rest API for your
+                                store or
+                                shopping
+                                website prototype</p>
+                            <div class="d-sm-flex justify-content-center justify-content-lg-start">
+                                <div class="me-sm-2 mb-2 mb-sm-0">
+                                    <a target="_blank" href="https://github.com/Mamun-swe/storexapi" type="button"
+                                        class="btn shadow-none github-btn btn-dark">
+                                        View on Github
+                                    </a>
+                                </div>
+
+                                <div>
+                                    <a href="/docs" type="button" class="btn shadow-none doc-btn">
+                                        Read Docs
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-lg-6 text-center text-lg-start pt-lg-5">
+                            <img src="../images/programming.png" alt="StorexAPI" class="img-fluid">
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Section one -->
+            <div class="section-one text-center">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12 col-lg-10 mx-auto">
+                            <h3 class="h3 fw-bold mb-1">Get tired of Lorem ipsum data?!</h3>
+                            <h3 class="h3 fw-bold mb-4">Didn't you find any free store management & e-commerce API?!
+                            </h3>
+                            <p class="fw-light mb-3" style="font-size: 17px; color: #3a3134;">
+                                StorexApi is a free online REST API that you can use whenever you need Pseudo-real
+                                data for your
+                                store management and
+                                shopping website without running any server-side code. It's awesome for teaching
+                                purposes, sample
+                                codes, tests,
+                                etc.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Resources section -->
+            <div class="resource-section">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12">
+                            <h3 class="h3 mb-0">Resources</h3>
+                            <p class="text-muted mb-4">There are 7 main resources need in store prototypes:</p>
+
+                            <%for (var item in data.resources){%>
+                                <div class="d-flex mb-2 api-routes-list-box">
+                                    <div>
+                                        <p class="fw-semibold mb-0" style="font-size: 16px !important;">
+                                            <%=data.resources[item].title%>
+                                        </p>
+                                    </div>
+
+                                    <div class="ms-auto">
+                                        <a href="<%=data.root_url+data.resources[item].endpoint%>">
+                                            <p class="text-break fw-semibold mb-0" style="font-size: 16px !important;">
+                                                <%=data.resources[item].endpoint%>
+                                            </p>
+                                        </a>
+                                    </div>
+                                </div>
+                                <%}%>
+                                    <div class="pt-4 text-center text-lg-start">
+                                        <a href="/docs" type="button" class="btn shadow-none doc-btn">
+                                            View Details on Docs
+                                        </a>
+                                    </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- API routes section -->
+            <div class="api-routes-section">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12">
+                            <h3 class="h3 mb-0">API Routes</h3>
+                            <p class="text-muted mb-4">All HTTP methods are supported.</p>
+
+                            <div>
+                                <%for (let j=0; j < data.api_routes[1].store.length; j++) {%>
+                                    <div class="d-flex mb-2 api-routes-list-box">
+                                        <div style="width: 60px !important;">
+                                            <p class="fw-semibold mb-0" style="font-size: 15px !important;">
+                                                <%=data.api_routes[1].store[j].method%>
+                                            </p>
+                                        </div>
+                                        <div class="ms-auto">
+                                            <a href="<%=data.root_url+data.api_routes[1].store[j].endpoint%>">
+                                                <p class="text-break fw-semibold mb-0"
+                                                    style="font-size: 16px !important;">
+                                                    <%=data.api_routes[1].store[j].endpoint%>
+                                                </p>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <%}%>
+                                        <%for (let j=0; j < data.api_routes[3].product.length; j++) {%>
+                                            <div class="d-flex mb-2 api-routes-list-box">
+                                                <div style="width: 60px !important;">
+                                                    <p class="fw-semibold mb-0" style="font-size: 15px !important;">
+                                                        <%=data.api_routes[3].product[j].method%>
+                                                    </p>
+                                                </div>
+                                                <div class="ms-auto">
+                                                    <a href="<%=data.root_url+data.api_routes[3].product[j].endpoint%>">
+                                                        <p class="text-break fw-semibold mb-0"
+                                                            style="font-size: 16px !important;">
+                                                            <%=data.api_routes[3].product[j].endpoint%>
+                                                        </p>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            <%}%>
+                            </div>
+                            <div class="pt-4 text-center text-lg-start">
+                                <a href="/docs" type="button" class="btn shadow-none doc-btn">
+                                    View Details on Docs
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <%- include("../components/footer.ejs") %>
+            <%- include("../components/end.ejs") %>
