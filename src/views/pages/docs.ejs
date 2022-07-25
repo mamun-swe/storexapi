@@ -13,52 +13,64 @@
         </div> -->
 
         <div class="custom-container">
-            <div class="container py-5">
+            <div class="container pt-5">
                 <div class="row">
 
                     <!-- Resources -->
                     <div class="col-12 mb-5">
                         <h4 class="h4 mb-0">Resources</h4>
                         <p class="text-danger">There are 7 main resources need in store prototypes:</p>
-                        <ol>
-                            <%for (var item in data.resources){%>
-                                <li class="d-sm-flex mb-1">
-                                    <p class="fw-bold me-1 mb-0">
-                                        <%=data.resources[item].title%>:
+
+                        <%for (var item in data.resources){%>
+                            <div class="d-flex mb-3 ms-md-3 api-routes-list-box">
+                                <div>
+                                    <p class="fw-semibold mb-0" style="font-size: 15px !important;">
+                                        <%=data.resources[item].title%>
                                     </p>
-                                    <a href="<%=data.resources[item].endpoint%>">
-                                        <p class="text-break mb-0">
+                                </div>
+
+                                <div class="ms-auto">
+                                    <a href="<%=data.root_url+data.resources[item].endpoint%>">
+                                        <p class="text-break fw-semibold mb-0" style="font-size: 16px !important;">
                                             <%=data.resources[item].endpoint%>
                                         </p>
                                     </a>
-                                </li>
-                                <%}%>
-                        </ol>
+                                </div>
+                            </div>
+                            <%}%>
                     </div>
 
+                    <!-- API Routes -->
                     <div class="col-12 mb-5">
-                        <h4 class="h4 mb-4">API Routes</h4>
+                        <h4 class="h4 mb-5">API Routes</h4>
 
                         <div>
                             <%for (let i=0; i < data.api_routes.length; i++) {%>
-                                <h6 class="text-capitalize fw-bold mb-3">
+                                <h5 class="h5 text-capitalize fw-bold mb-3">
                                     <%=Object.keys(data.api_routes[i])[0]%>
-                                </h6>
+                                </h5>
                                 <div class="mb-5">
                                     <% var element=data.api_routes[i][Object.keys(data.api_routes[i])[0]]%>
                                         <%for (let j=0; j < element.length; j++) {%>
-                                            <div class="d-sm-flex mb-2 ms-3">
-                                                <p class="fw-bold mb-0">
-                                                    [<%=element[j].method%>]
-                                                </p>
-                                                <p class="mx-1 mb-0">
-                                                    (<%=element[j].title%>)
-                                                </p>
-                                                <a href="<%=element[j].endpoint%>">
-                                                    <p class="text-break mb-0">
-                                                        <%=element[j].endpoint%>
+                                            <div class="d-flex mb-3 ms-md-3 api-routes-list-box">
+                                                <div style="width: 60px !important;">
+                                                    <p class="fw-semibold mb-0" style="font-size: 15px !important;">
+                                                        <%=element[j].method%>
                                                     </p>
-                                                </a>
+                                                </div>
+                                                <div>
+                                                    <p class="me-2 mb-0" style="font-size: 15px !important;">
+                                                        (<%=element[j].title%>)
+                                                    </p>
+                                                </div>
+                                                <div class="ms-auto">
+                                                    <a href="<%=data.root_url+element[j].endpoint%>">
+                                                        <p class="text-break fw-semibold mb-0"
+                                                            style="font-size: 16px !important;">
+                                                            <%=element[j].endpoint%>
+                                                        </p>
+                                                    </a>
+                                                </div>
                                             </div>
                                             <%}%>
                                 </div>
@@ -68,5 +80,5 @@
                 </div>
             </div>
         </div>
-
-        <%- include("../components/end.ejs") %>
+        <%- include("../components/footer.ejs") %>
+            <%- include("../components/end.ejs") %>
