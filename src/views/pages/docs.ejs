@@ -19,12 +19,12 @@
                     <!-- Resources -->
                     <div class="col-12 mb-5">
                         <h4 class="h4 mb-0">Resources</h4>
-                        <p class="text-danger">There are 7 main resources need in store prototypes:</p>
+                        <p class="text-muted mb-4">There are 7 main resources need in store prototypes:</p>
 
                         <%for (var item in data.resources){%>
-                            <div class="d-flex mb-3 ms-md-3 api-routes-list-box">
+                            <div class="d-flex mb-2 ms-md-3 api-routes-list-box">
                                 <div>
-                                    <p class="fw-semibold mb-0" style="font-size: 15px !important;">
+                                    <p class="fw-semibold mb-0" style="font-size: 16px !important;">
                                         <%=data.resources[item].title%>
                                     </p>
                                 </div>
@@ -42,17 +42,18 @@
 
                     <!-- API Routes -->
                     <div class="col-12 mb-5">
-                        <h4 class="h4 mb-5">API Routes</h4>
+                        <h4 class="h4 mb-0">API Routes</h4>
+                        <p class="text-muted mb-4">All HTTP methods are supported</p>
 
                         <div>
                             <%for (let i=0; i < data.api_routes.length; i++) {%>
                                 <h5 class="h5 text-capitalize fw-bold mb-3">
                                     <%=Object.keys(data.api_routes[i])[0]%>
                                 </h5>
-                                <div class="mb-5">
+                                <div class="mb-4">
                                     <% var element=data.api_routes[i][Object.keys(data.api_routes[i])[0]]%>
                                         <%for (let j=0; j < element.length; j++) {%>
-                                            <div class="d-flex mb-3 ms-md-3 api-routes-list-box">
+                                            <div class="d-flex mb-2 ms-md-3 api-routes-list-box">
                                                 <div style="width: 60px !important;">
                                                     <p class="fw-semibold mb-0" style="font-size: 15px !important;">
                                                         <%=element[j].method%>

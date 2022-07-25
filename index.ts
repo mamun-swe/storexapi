@@ -47,7 +47,7 @@ if (cluster.isMaster) {
 
     /* Base route */
     app.get("/", (req: Request, res: Response, next: NextFunction) => {
-        res.render("pages/index")
+        res.render("pages/index", { data: jsonData })
     })
 
     app.get("/docs", (req: Request, res: Response, next: NextFunction) => {

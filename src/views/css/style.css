@@ -4,6 +4,53 @@ body {
     font-family: 'Barlow', sans-serif;
 }
 
+.h1, .h2, .h3, .h4, .h5, .h6 {
+    color: #1b1b35 !important;
+}
+
+.github-btn {
+    color: #fff;
+    border: 0;
+    padding-top: 17px;
+    padding-bottom: 17px;
+    transition: 0.3s all;
+    width: 220px !important;
+    font-size: 16px !important;
+    border-radius: 4px !important;
+}
+
+.github-btn:hover {
+    color: #fff;
+    background: #44494e;
+}
+
+.doc-btn {
+    border: 0;
+    padding-top: 17px;
+    padding-bottom: 17px;
+    width: 220px !important;
+    color: #fff !important;
+    font-size: 16px !important;
+    border-radius: 4px !important;
+    transition: 0.3s all !important;
+    background: #1b1b35 !important;
+}
+
+.doc-btn:hover {
+    background: #1b1b35da !important;
+}
+
+.custom-container {
+    margin-top: 62px !important;
+}
+
+@media(min-width: 992px) {
+    .custom-container {
+        margin-top: 85px !important;
+    }
+}
+
+
 /* Navbar styels*/
 .custom-navbar {
     position: fixed;
@@ -46,74 +93,58 @@ body {
 
 /* End navbar styels*/
 
-
-.custom-container {
-    margin-top: 62px !important;
+/* Home page styles */
+header {
+    padding-top: 100px;
+    padding-bottom: 100px;
 }
 
-@media(min-width: 992px) {
-    .custom-container {
-        margin-top: 85px !important;
+header .header-content-container {
+    padding-top: 100px;
+}
+
+@media(min-width: 768px) {
+    header img {
+        max-width: 500px !important;
     }
 }
 
-/* Home page styles */
-.github-btn {
-    color: #fff;
-    border: 0;
-    padding: 12px 25px;
-    transition: 0.3s all;
+@media(min-width: 992px) {
+    header img {
+        min-width: 550px !important;
+    }
 }
 
-.github-btn:hover {
-    color: #fff;
-    background: #44494e;
+@media(min-width: 1280px) {
+    header img {
+        min-width: 650px !important;
+    }
 }
 
-.postman-btn {
-    border: 0;
-    padding: 12px 25px;
-    transition: 0.3s all;
-    color: #fff !important;
-    background: #EF5B25 !important;
+@media(min-width: 992px) {
+    header .header-content-container {
+        padding-top: 150px;
+    }
 }
 
-.postman-btn:hover {
-    background: rgba(218, 87, 40, 0.849) !important;
+.section-one {
+    text-align: center;
+    padding-bottom: 100px !important;
+}
+
+
+.resource-section {
+    padding-bottom: 100px !important;
+}
+
+.api-routes-section {
+    padding-bottom: 100px !important;
 }
 
 /* End home page styles */
 
 
 /* Docs page styles */
-/* custom-desktop-sidebar */
-/* .custom-desktop-sidebar {
-    display: none;
-}
-
-@media(min-width: 992px) {
-    .custom-desktop-sidebar {
-        display: block;
-        position: fixed;
-        top: 0;
-        left: 0;
-        padding: 15px;
-        padding-top: 85px !important;
-        width: 250px !important;
-        height: 100vh !important;
-        overflow-y: auto;
-        overflow-x: hidden;
-    }
-
-    .docs-main-content-container {
-        padding-left: 250px !important;
-    }
-} */
-
-.h4, .h5, .h6 {
-    color: #1b1b35 !important;
-}
-
 @media(min-width: 768px) {
     .api-routes-list-box {
         width: 600px !important;
