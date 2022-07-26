@@ -40,6 +40,22 @@ body {
     background: #1b1b35da !important;
 }
 
+.postman-btn {
+    border: 0;
+    padding-top: 17px;
+    padding-bottom: 17px;
+    width: 220px !important;
+    color: #fff !important;
+    font-size: 16px !important;
+    border-radius: 4px !important;
+    transition: 0.3s all !important;
+    background: #EF5B25 !important;
+}
+
+.postman-btn:hover {
+    background: #ef5b25c4 !important;
+}
+
 .custom-container {
     margin-top: 62px !important;
 }
