@@ -2,16 +2,16 @@
   "name": "storexapi",
   "version": "1.0.0",
   "description": "Storexapi is a store management opensource API platform for web and mobile apps frontend developers.",
-  "main": "index.ts",
+  "main": "server.ts",
   "scripts": {
     "clean": "rimraf build/*",
     "copy-static-assets": "ts-node copy-static-assets.ts",
     "build": "npm run clean && npm run copy-static-assets && npx tsc",
-    "start": "node build/index.js",
+    "start": "node build/server.js",
     "postinstall": "tsc",
-    "watch-node": "nodemon build/index.js",
+    "watch-node": "nodemon build/server.js",
     "watch-ts": "tsc -w",
-    "dev": "concurrently \"npx tsc --watch\" \"nodemon -q build/index.js\""
+    "dev": "concurrently \"npx tsc --watch\" \"nodemon -q build/server.js\""
   },
   "repository": {
     "type": "git",
