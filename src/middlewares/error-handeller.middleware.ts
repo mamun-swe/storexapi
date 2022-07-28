@@ -2,7 +2,8 @@
 import { NextFunction, Request, Response } from "express"
 
 export const errorHandeller = async (error: any, req: Request, res: Response, next: NextFunction) => {
-    if (error.status == 404) {
+   console.log(error)
+ if (error.status == 404) {
         return res.status(404).json({
             status: false,
             errors: { message: error.message }
