@@ -20,10 +20,10 @@ app.use(morgan('dev'))
 app.use(compression())
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }))
-app.use(express.static("src/views"))
+app.use(express.static("views"))
 
 /* set the view engine to ejs */
-app.set("views", path.join(__dirname, "views"));
+app.set("views", path.join(__dirname, "../views"));
 app.set("view engine", "ejs");
 
 /* Base route */
