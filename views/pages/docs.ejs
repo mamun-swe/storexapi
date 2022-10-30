@@ -17,8 +17,8 @@
                                     </p>
                                 </div>
 
-                                <div class="ms-auto">
-                                    <a href="<%=data.root_url+data.resources[item].endpoint%>">
+                                <div class="ms-auto root_resources">
+                                    <a href="#<%=data.resources[item].title?.toLowerCase()%>">
                                         <p class="text-break fw-semibold mb-0" style="font-size: 16px !important;">
                                             <%=data.resources[item].endpoint%>
                                         </p>
@@ -35,8 +35,11 @@
 
                         <div>
                             <%for (let i=0; i < data.api_routes.length; i++) {%>
-                                <h5 class="h5 text-capitalize fw-bold mb-3">
-                                    <%=Object.keys(data.api_routes[i])[0]%>
+                                <h5 id="<%=Object.keys(data.api_routes[i])[0]?.toLowerCase()%>" class="h5 text-capitalize fw-bold mb-3">
+                                    <a class="nextSection me-1" href="#<%=Object.keys(data.api_routes[i+1]??data.api_routes[0])[0]%>"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-down mb-1" viewBox="0 0 16 16">
+                                        <path fill-rule="evenodd" d="M8 1a.5.5 0 0 1 .5.5v11.793l3.146-3.147a.5.5 0 0 1 .708.708l-4 4a.5.5 0 0 1-.708 0l-4-4a.5.5 0 0 1 .708-.708L7.5 13.293V1.5A.5.5 0 0 1 8 1z"/>
+                                      </svg></a>
+                                      <%=Object.keys(data.api_routes[i])[0]%>
                                 </h5>
                                 <div class="mb-4">
                                     <% var element=data.api_routes[i][Object.keys(data.api_routes[i])[0]]%>
