@@ -13,5 +13,11 @@ pipeline {
       }
     }
 
+    stage('Run dev mode') {
+      steps {
+        sh 'npm run dev'
+      }
+    }
+
   }
 }
