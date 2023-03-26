@@ -1,0 +1,22 @@
+version: "3.9"
+
+services:
+  storex:
+    build: .
+    image: storex
+    container_name: storex
+    ports:
+      - ${PORT}:${PORT}
+    environment:
+      - PORT=${PORT}
+      - DB_URI=${DB_URI}
+      - TEST_DB_URI=${TEST_DB_URI}
+      - JWT_SECRET=${JWT_SECRET}
+      - ENVIRONMENT=${ENVIRONMENT}
+    networks:
+      - storex-container-network
+
+networks:
+  storex-container-network:
+    name: storex-container-network
+    driver: bridge
