@@ -1,21 +1,9 @@
 pipeline {
   agent any
   stages {
-    stage('NPM Install') {
+    stage('Checkout Code') {
       steps {
-        sh 'npm install'
-      }
-    }
-
-    stage('Build') {
-      steps {
-        sh 'npm run build'
-      }
-    }
-
-    stage('Run dev mode') {
-      steps {
-        sh 'npm run dev'
+        git(url: 'https://github.com/mamun-swe/storexapi', branch: 'main')
       }
     }
 
